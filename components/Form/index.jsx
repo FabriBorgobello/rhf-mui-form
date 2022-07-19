@@ -39,11 +39,13 @@ const Form = () => {
       <pre
         style={{ backgroundColor: "rgba(0, 255, 0, 0.05)", padding: "1rem" }}
       >
+        Payload:
         {JSON.stringify(methods.watch(), null, 2)}
       </pre>
       <pre
         style={{ backgroundColor: "rgba(255, 0, 0, 0.05)", padding: "1rem" }}
       >
+        Errors:
         {JSON.stringify(methods.formState.errors, null, 2)}
       </pre>
     </FormProvider>
