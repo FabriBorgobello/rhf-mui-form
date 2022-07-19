@@ -8,7 +8,14 @@ const MuiTextField = () => {
     <Controller
       name="text-field-test"
       control={methods.control}
-      render={({ field }) => <TextField {...field} label="Text field" />}
+      render={({ field }) => (
+        <TextField
+          {...field}
+          label="Text field"
+          error={methods?.formState?.errors?.["text-field-test"]?.message}
+          helperText={methods?.formState?.errors?.["text-field-test"]?.message}
+        />
+      )}
     />
   );
 };

@@ -15,7 +15,13 @@ const MuiAutocomplete = () => {
           sx={{ width: 300 }}
           onChange={(_, newValue) => onChange(newValue)}
           renderInput={(params) => (
-            <TextField {...params} label="Autocomplete" variant="outlined" />
+            <TextField
+              {...params}
+              label="Autocomplete"
+              variant="outlined"
+              error={methods.formState.errors[name]?.message}
+              helperText={methods.formState.errors[name]?.message}
+            />
           )}
           isOptionEqualToValue={(option, value) => option.label === value.label}
         />

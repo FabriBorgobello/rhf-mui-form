@@ -1,4 +1,4 @@
-import { Box, FormLabel, Rating } from "@mui/material";
+import { FormControl, FormHelperText, FormLabel, Rating } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 
 const MuiRating = () => {
@@ -9,7 +9,7 @@ const MuiRating = () => {
       name="rating-test"
       control={methods.control}
       render={({ field: { value, onChange, name } }) => (
-        <Box display="flex" flexDirection="column">
+        <FormControl component="fieldset">
           <FormLabel id={`${name}-label`}>Rating</FormLabel>
           <Rating
             aria-labelledby={`${name}-label`}
@@ -17,7 +17,10 @@ const MuiRating = () => {
             value={value}
             onChange={(_, newValue) => onChange(newValue)}
           />
-        </Box>
+          <FormHelperText error={methods?.formState?.errors?.[name]?.message}>
+            {methods.formState.errors?.[name]?.message}
+          </FormHelperText>
+        </FormControl>
       )}
     />
   );

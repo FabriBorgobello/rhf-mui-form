@@ -2,6 +2,7 @@ import {
   Checkbox,
   FormControl,
   FormControlLabel,
+  FormHelperText,
   FormLabel,
 } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
@@ -28,6 +29,11 @@ const MuiSingleCheckbox = () => {
           />
         }
       />
+      <FormHelperText
+        error={methods?.formState?.errors?.["single-checkbox-test"]?.message}
+      >
+        {methods.formState.errors?.["single-checkbox-test"]?.message}
+      </FormHelperText>
     </FormControl>
   );
 };

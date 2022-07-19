@@ -1,4 +1,10 @@
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import {
+  FormControl,
+  FormHelperText,
+  InputLabel,
+  MenuItem,
+  Select,
+} from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 
 const MuiSelect = () => {
@@ -17,6 +23,7 @@ const MuiSelect = () => {
             value={value}
             onChange={onChange}
             label="Select"
+            error={methods.formState.errors?.[name]?.message}
           >
             {OPTIONS.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -24,6 +31,9 @@ const MuiSelect = () => {
               </MenuItem>
             ))}
           </Select>
+          <FormHelperText error>
+            {methods.formState.errors?.[name]?.message}
+          </FormHelperText>
         </FormControl>
       )}
     />

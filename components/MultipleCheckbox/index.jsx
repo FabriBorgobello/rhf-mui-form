@@ -3,6 +3,7 @@ import {
   FormControl,
   FormControlLabel,
   FormGroup,
+  FormHelperText,
   FormLabel,
 } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
@@ -39,6 +40,11 @@ const MuiMultipleCheckbox = () => {
           />
         ))}
       </FormGroup>
+      <FormHelperText
+        error={methods?.formState?.errors?.["multiple-checkbox-test"]?.message}
+      >
+        {methods.formState.errors?.["multiple-checkbox-test"]?.message}
+      </FormHelperText>
     </FormControl>
   );
 };

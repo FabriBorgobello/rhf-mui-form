@@ -1,6 +1,7 @@
 import {
   FormControl,
   FormControlLabel,
+  FormHelperText,
   FormLabel,
   Radio,
   RadioGroup,
@@ -32,6 +33,9 @@ const MuiRadioButtons = () => {
               />
             ))}
           </RadioGroup>
+          <FormHelperText error={methods?.formState?.errors?.[name]?.message}>
+            {methods.formState.errors?.[name]?.message}
+          </FormHelperText>
         </FormControl>
       )}
     />
