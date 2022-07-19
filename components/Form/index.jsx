@@ -22,11 +22,6 @@ const Form = () => {
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
         <Stack spacing={4}>
-          <pre
-            style={{ backgroundColor: "rgba(0, 0, 0, 0.05)", padding: "1rem" }}
-          >
-            {JSON.stringify(methods.formState.errors, null, 2)}
-          </pre>
           <MuiTextField />
           <MuiSelect />
           <MuiSingleCheckbox />
@@ -41,8 +36,15 @@ const Form = () => {
         </Stack>
       </form>
       <Divider sx={{ margin: "1rem 0" }} />
-      <pre style={{ backgroundColor: "rgba(0, 0, 0, 0.05)", padding: "1rem" }}>
+      <pre
+        style={{ backgroundColor: "rgba(0, 255, 0, 0.05)", padding: "1rem" }}
+      >
         {JSON.stringify(methods.watch(), null, 2)}
+      </pre>
+      <pre
+        style={{ backgroundColor: "rgba(255, 0, 0, 0.05)", padding: "1rem" }}
+      >
+        {JSON.stringify(methods.formState.errors, null, 2)}
       </pre>
     </FormProvider>
   );
